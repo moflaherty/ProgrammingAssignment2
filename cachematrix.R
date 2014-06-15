@@ -1,5 +1,5 @@
 # =============================================================
-# Author:  	   Michael O'Flaherty (michael@oflaherty.com)
+# Author:      Michael O'Flaherty (michael@oflaherty.com)
 # Create date: 6/15/2014
 # Description: Created the fork from 
 #              https://github.com/rdpeng/ProgrammingAssignment2
