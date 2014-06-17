@@ -14,10 +14,10 @@
 # ================================================================
 # Function:   makeCacheMatrix
 # Summary:    This function creates a special "matrix" object that 
-#             stores the matrix and appends functionality to it.
+#             stores the matrix and appends functions to it.
 # Param:      x: The matrix to store.
 # Interface:  set: Updates the value and clears the cache.
-#             get: Returns the stored matrix.
+#             get: Returns the stored value.
 #             setinverse: Stores the inverted object.
 #             getinverse: Returns the inverted object.
 # ================================================================
@@ -26,23 +26,23 @@ makeCacheMatrix <- function(x = matrix()) {
   # seed the storage object m to NULL; it will be used below
   m <- NULL  
   
-  # define the function set; this function will populate the x 
+  # define the set function; this function will populate the x 
   # variable and set the m object to NULL
   set <- function(y) {
     x <<- y
     m <<- NULL
   }
   
-  # create a get function which returns x
+  # define a get function which returns x
   get <- function() x
   
-  # create the setinverse function that will store the inverse
+  # define the setinverse function that will store the inverse
   setinverse <- function(inverse) m <<- inverse
   
-  # create the getinverse function that returns the m object
+  # define the getinverse function that returns the m object
   getinverse <- function() m
   
-  # build and return a list of the functions we have created.
+  # build and return a list of the functions we have defined.
   # this will be appended to the object (in this case, the
   # matrix.)
   list(set = set, get = get,
@@ -57,9 +57,8 @@ makeCacheMatrix <- function(x = matrix()) {
 #             inverse has already been calculated (and the matrix 
 #             has not changed), then cacheSolve will retrieve the 
 #             inverse from the cache.
-# Param:      x; the matrix to append the special functionality to
-#
-# Interface:
+# Param:      x; the special "matrix" container created with 
+#             makeCacheMatrix
 # ================================================================
 cacheSolve <- function(x, ...) {
   
@@ -67,7 +66,7 @@ cacheSolve <- function(x, ...) {
   m <- x$getinverse()
   if(!is.null(m)) {
     
-    message("getting cached data") # debug message
+    message("getting cached data") # debug message; can be removed
     
     # found in cache; use this one
     return(m)
